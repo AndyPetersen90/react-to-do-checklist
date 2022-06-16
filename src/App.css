@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+/* ! First Week of CSS */
+:root {
+  --background: #232323;
+  --lift: #2c2c2c;
+  --faded: #838383;
+  /* * Pick an accent color below by commenting one in, and commenting the others out */
+  /* --accent: #EE6352; */
+  /* --accent: #25AAE1; */
+  /* --accent: #FB5607; */
+  /* --accent: #FF006E; */
+  /* --accent: #8338EC; */
+  --accent: #04A777;
+  /* --accent: #FFA620; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+body {
   min-height: 100vh;
+  min-width: 100vw;
+  background-color: var(--background);
+  overflow-x: hidden;
+}
+
+header {
+  height: 75px;
+  width: 100vw;
+  background-color: var(--accent);
+  padding: 0px 35px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-bottom: 80px;
+  box-sizing: border-box;
+}
+
+.App {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.task-form {
+  background: var(--lift);
+  width: 300px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  border-radius: 3px;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.7);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input, select {
+  height: 45px;
+  width: 300px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+}
+
+button {
+  width: 150px;
+  height: 45px;
+  font-size: 25px;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  margin: 10px;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.small-btn {
+  width: 40px;
+  height: 40px;
+
+}
+
+.item-card {
+  display: flex;
+  padding: 15px;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.7);
+  width: 100%;
+  height: fit-content;
+  background-color: var(--lift);
+  border-radius: 3px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.item-card-left h3, .item-card-left h5 {
+  margin: 0;
+  padding: 0;
+}
+
+.complete {
+  text-decoration: line-through;
+  color: var(--faded);
 }
