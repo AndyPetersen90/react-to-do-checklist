@@ -9,8 +9,10 @@ const ListTasks = (props) => {
         props.setList([...props.list])
     }
 
-    const listDisplay = props.list.filter(item => item.category.includes(filter)).map((item, index) => {
-        return <Item task={item} deleteTask={deleteTask} index={index}/>
+    const listDisplay = props.list
+        // .filter(item => item.category.includes(filter))
+        .map((item, index) => {
+            return <Item task={item} deleteTask={deleteTask} index={index}/>
     });
 
     return (

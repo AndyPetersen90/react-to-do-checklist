@@ -15,6 +15,15 @@ app.get('/api/getCategories', async (req, res) => {
     .then((dbRes) => res.status(200).send(dbRes[0]))
 })
 
+app.get('/api/tasks', async (req, res) => {
+    sequelize.query(`
+        SELECT * FROM tasks t
+        JOIN categories c
+        ON t.category = c.id
+    `)
+    .then((dbRes) => res.status(200).send(dbRes[0]))
+})
+
 app.post('/api/tasks', async (req, res) => {
     const {task_name, category} = req.body
     sequelize.query(`

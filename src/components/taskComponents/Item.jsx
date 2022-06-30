@@ -6,8 +6,8 @@ const Item = ({task, deleteTask, index}) => {
     return (
         <div className='item-card'>
             <div className="item card left">
-                <h3 onClick={() => setComplete(!complete)} className={complete && "complete"}>{task.task}</h3>
-                <h5>{task.category}</h5>
+                <h3 onClick={() => setComplete(!complete)} className={complete && "complete"}>{task.task_name}</h3>
+                <h5>{task.title}</h5>
             </div>
             <button className="small-btn" onClick={() => deleteTask(index)}>X</button>
         </div>

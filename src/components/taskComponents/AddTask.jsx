@@ -11,11 +11,17 @@ const AddTask = () => {
     const [category, setCategory] = useState("")
     const [allCategories, setAllCategories] = useState([])
 
-    const handleClick = () => {
-        setList([...list, {task: input, category: category}])
+    // const handleList = (values) => {
+    //     setList([...list, values])
+    // }
+
+    const getTasks = () => {
+        axios.get('http://localhost:4000/api/tasks')
+        .then((res) => setList(res.data))
     }
 
     useEffect(() => {
+        getTasks()
         axios.get('http://localhost:4000/api/getCategories')
         .then((res) => {
             console.log(res)
@@ -27,7 +33,7 @@ const AddTask = () => {
         <div>
             <h1>Add Task</h1>
             <CreateTask 
-                handleClick={handleClick}
+                getTaskst={getTasks}
                 setInput={setInput}
                 setCategory={setCategory}
                 allCategories={allCategories}

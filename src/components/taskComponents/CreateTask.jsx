@@ -1,8 +1,10 @@
+/*figure out the axios delete request and the filtering of the categories*/
+
 import React from 'react';
 import {useFormik} from "formik";
 import axios from "axios";
 
-const CreateTask = ({handleClick, setInput, setCategory, allCategories}) => {
+const CreateTask = ({getTasks, setInput, setCategory, allCategories}) => {
     const options = allCategories.map((cat, index) => {
     return <option value={cat.id}>{cat.title}</option>
     })
@@ -14,7 +16,9 @@ const CreateTask = ({handleClick, setInput, setCategory, allCategories}) => {
         },
         onSubmit: (values) => {
             axios.post('http://localhost:4000/api/tasks', values)
-            .then((res) => formik.handleReset())
+            .then((res) => {
+                getTasks()
+                formik.handleReset()})
         }
     })
 
