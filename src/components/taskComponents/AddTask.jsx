@@ -24,7 +24,6 @@ const AddTask = () => {
         getTasks()
         axios.get('http://localhost:4000/api/getCategories')
         .then((res) => {
-            console.log(res)
             setAllCategories(res.data)
         })
     }, [])
@@ -39,7 +38,7 @@ const AddTask = () => {
                 allCategories={allCategories}
             />
             <h2>My Tasks</h2>
-            <ListTasks list={list} setList={setList}/>
+            <ListTasks list={list} setList={setList} allCategories={allCategories}/>
         </div>
     )
 }

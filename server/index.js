@@ -35,4 +35,13 @@ app.post('/api/tasks', async (req, res) => {
     .then(dbRes => res.status(200).send("success"))
 })
 
+app.delete('api/tasks/:task_id', async (req, res) => {
+    const {task_id} = req.body
+    sequelize.query(`
+    DELETE FROM tasks
+    WHERE task_id = ${task_id}
+    `)
+    .then((dbRes) => res.status(200).send(dbRes[0]))
+})
+
 app.listen(PORT, () => console.log(`Port is exactly ${PORT}`));
